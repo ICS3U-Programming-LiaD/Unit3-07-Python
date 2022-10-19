@@ -6,14 +6,24 @@
 
 
 def main():
-    # Getting the Users age
-    user_age = int(input("How old are you?  "))
-    print("")
+
     # Determining whether the user can date their grandchild
-    if user_age >= 25 and user_age <= 40:
-        print("You can date my grandchild!")
+    try:
+        # Getting the Users age
+        user_age_as_string = input("How old are you?  ")
+        user_age_as_int = int(user_age_as_string)
+    except Exception:
+        print(user_age_as_string, "is not valid")
+
+    # Determine whether the user is the right age to date the grandchild
     else:
-        print("I'm sorry, but you cannot date my grandchild")
+        if user_age_as_int >= 25 and user_age_as_int <= 40:
+            print("You can date my grandchild!")
+        else:
+            print("I'm sorry, but you cannot date my grandchild")
+
+    finally:
+        print("Thanks for playing!")
 
 
 if __name__ == "__main__":
